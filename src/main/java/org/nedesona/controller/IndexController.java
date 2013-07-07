@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.nedesona.domain.BookmarkUser;
 import org.nedesona.domain.User;
 import org.nedesona.utils.BookmarkUtils;
 import org.springframework.stereotype.Controller;
@@ -19,7 +20,7 @@ public class IndexController {
 	public ModelAndView showSignUp(HttpServletRequest request,
 			HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
-		User user = BookmarkUtils.getUser(request);
+		BookmarkUser user = BookmarkUtils.getUser(request);
 		return new ModelAndView("index", model);
 	}
 }

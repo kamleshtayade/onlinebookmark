@@ -33,13 +33,6 @@
 			         <div class="input-prepend"> <span class="add-on"><i class="icon-envelope"></i></span> <input type="email" placeholder="Email address" class="input-large" ng-model="user.email" required/> </div>
 			      </div>
 			   </div>
-			   
-			   <div class="control-group">
-			      <label class="control-label" for="inputEmail">Password</label>
-			      <div class="controls">
-			         <div class="input-prepend"> <span class="add-on"><i class="icon-key"></i></span> <input type="password" placeholder="Password" class="input-large" ng-model="user.password" required/> </div>
-			      </div>
-			   </div>
 			   <div class="form-actions">
 				<button type="button" ng-disabled="form.$invalid" class="btn btn-info offset1" ng-click="doSignUp()">Register</button>
 				<button type="button" class="btn">Cancel</button>

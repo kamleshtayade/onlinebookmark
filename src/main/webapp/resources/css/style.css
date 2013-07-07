@@ -2,6 +2,7 @@ body {
 	background-color: white;
 	margin: 0;
 	padding: 0;
+	color : black;
 }
 
 .content {
@@ -10,6 +11,9 @@ body {
 	min-height: 600px;
 }
 
+.dropdown-menu{
+	border-radius:0px 0px 0px 0px
+}
 p.small {
 	font-size: 0.8em;
 	color: #6D6D6D;
@@ -189,4 +193,68 @@ legend small {
 	background-color: #FF6600;
     color: white;
     cursor: pointer;
+}
+
+.gts-flat-dropdown-menu {
+    max-width: 900px;
+}
+.gts-flat-dropdown-menu td {
+    vertical-align: top;
+}
+.gts-user-dropdown-menu {
+    padding-left: 6px;
+    padding-right: 6px;
+    width: 300px;
+}
+.gts-user-dropdown-menu .user-photo {
+    background: none no-repeat scroll 0 0 transparent;
+    height: 64px;
+    vertical-align: top;
+    width: 64px;
+}
+.gts-user-dropdown-menu .user-details {
+    display: inline-block;
+    width: 195px;
+}
+.user-name {
+    color: #5F5F5F;
+    font-size: 1.0em;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px #C9C9C9;
+}
+
+.user-email{
+	 color: #5F5F5F;
+    font-size: 0.8em;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px #C9C9C9;
+}
+
+.gts-user-dropdown-menu .user-footer {
+    width: 100%;
+}
+.gts-user-dropdown-menu .user-footer .user-signout {
+    clear: none !important;
+    margin-right: 5px;
+    width: 115px;
+}
+
+.dropdown-menu a {
+    clear: both;
+    color: #333333;
+    display: block;
+    font-weight: normal;
+    line-height: 18px;
+    padding: 3px 15px;
+    white-space: nowrap;
+}
+.dropdown-menu li > a:hover, .dropdown-menu .active > a, .dropdown-menu .active > a:hover {
+    background-color: #003482;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+
+.bookmark-listing-box-header{
+	
 }

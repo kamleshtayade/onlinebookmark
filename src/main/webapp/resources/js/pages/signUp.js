@@ -13,7 +13,7 @@ function SignUpCtrl($scope, $http) {
 										.push({
 											type : 'success',
 											title : 'Heads up!',
-											content : ' You are now member of Online Bookmark family.'
+											content : ' You are now member of Online Bookmark family.Your password has been sent to your email id.'
 										});
 
 							} else {

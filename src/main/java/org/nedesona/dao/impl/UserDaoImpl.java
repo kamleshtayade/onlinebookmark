@@ -4,7 +4,6 @@ import java.util.Map;
 
 import org.nedesona.dao.UserDao;
 import org.nedesona.domain.BookmarkUser;
-import org.nedesona.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -23,17 +22,23 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public User validateUser(Map<String, Object> data) {
+	public BookmarkUser validateUser(Map<String, Object> data) {
 		Query query = new Query();
 		query.addCriteria(Criteria.where("userName").is(data.get("userName"))
 				.and("password").is(data.get("password")));
-		User user = mongoTemplate.findOne(query, User.class,"bookmarkuser");
+		BookmarkUser user = mongoTemplate.findOne(query, BookmarkUser.class,
+				"bookmarkuser");
 		if (user != null) {
 			return user;
 		} else {
 			return null;
 		}
 
+	}
+
+	@Override
+	public void updatePassword(BookmarkUser user) {
+		mongoTemplate.save(user);
 	}
 
 }

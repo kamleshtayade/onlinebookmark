@@ -1,7 +1,7 @@
-<img href="#" src="${rc.getContextPath()}/resources/img/logo2.png" style="left: 90px; position: fixed; top: -6px;">
+<img href="#" src="${rc.getContextPath()}/resources/img/logo2.png" style="left: 90px; position: absolute; top: -6px;">
 <div class="navbar navbar navbar-static-top">
-            <div class="navbar-inner" style="">
-                <div class="container" style=""><a href="#" class="brand" style="">Cloud Bookmark</a>
+            <div class="navbar-inner">
+                <div class="container"><a href="#" class="brand" style="">Cloud Bookmark</a>
 					<button data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar" type="button">
 			            <span class="icon-bar"></span>
 			            <span class="icon-bar"></span>
@@ -40,25 +40,22 @@
 								<div class="row"><div class="span4"><header><h4>Notifications</h4></header><div class="gts-ntfn-content"><div class="ntfn-body"></div></div></div></div></div>
 							</li>
 							<li class="dropdown">
-								<a data-toggle="dropdown" href="#" class="dropdown-toggle">${loggedInUser.userName}</a>
+								<a data-toggle="dropdown" href="#" class="dropdown-toggle">${loggedInUser.fullName}</a>
 								<div class="dropdown-menu gts-flat-dropdown-menu gts-user-dropdown-menu">
-									<div class="gts-user-dropdown-details">
-										<img alt="Aadesh Hiralal Sonar" style="background-image: url(/v2/employee/photo/37/medium)" src="/themes/bounce/images/s.gif" class="user-photo">
-										<div class="user-details">
-											<div class="user-name">${loggedInUser.userName}</div>
-												<ul class="unstyled">
-													<li><a href="/v2/user/account">Account Settings</a></li>
-													<li><a href="/v2/user/account">Application Settings</a></li>	
-												</ul>
-										</div>
-										<div class="divider"></div>
-										<ul class="user-footer unstyled">
-											<li class="user-signout pull-right pagination-right"><a href="/j_spring_security_logout">Sign Out</a></li>
+									<img src="${rc.getContextPath()}/resources/img/user-64-64.png" class="user-photo">
+									<div class="user-details">
+										<ul class="unstyled">
+											<li class="user-name">${loggedInUser.fullName}</li>
+											<li class="user-email">${loggedInUser.email}</li>
+											<li class="divider"></li>
+											<li><a href="#">Update Profile</a></li>
+											<li><a href="#">App Settings</a></li>
+											<li class="divider"></li>
+											<li><a href="#">Sign Out</a></li>	
 										</ul>
 									</div><!-- gts-user-dropdown-details -->
 								</div>
 							</li>
-							<li class=""><a href="/signOut">Sign Out</a></li>
 						</ul>
 			            
 			        		

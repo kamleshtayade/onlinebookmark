@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.nedesona.domain.BookmarkUser;
 import org.nedesona.service.UserManager;
+import org.nedesona.utils.BookmarkUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,32 +18,35 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class SignInController {
+public class ChangePasswordController {
+
 	@Autowired
 	private UserManager userManager;
 
-	@RequestMapping(value = "/signIn", method = RequestMethod.GET)
+	@RequestMapping(value = "/changePassword", method = RequestMethod.GET)
 	public ModelAndView showSignUp(HttpServletRequest request,
 			HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
-		return new ModelAndView("signIn", model);
+		return new ModelAndView("changePassword", model);
 	}
 
-	@RequestMapping(value = "/signIn", method = RequestMethod.POST)
+	@RequestMapping(value = "/changePassword", method = RequestMethod.POST)
 	public @ResponseBody
 	Object showSignUp(HttpServletRequest request,
 			@RequestBody Map<String, Object> data) {
 		Map<String, Object> model = new HashMap<String, Object>();
-		BookmarkUser user = userManager.validateUser(data);
-		if (user != null) {
-			request.getSession().setAttribute("loggedInUser", user);
-			model.put("isFirstLogin", user.getPassChanged());
-			model.put("user", user);
+		String oldPassword = (String) data.get("oldPassword");
+		String newPassword = (String) data.get("newPassword");
+		BookmarkUser user = BookmarkUtils.getUser(request);
+		if (user.getPassword().equals(oldPassword)) {
+			user.setPassword(newPassword);
+			user.setPassChanged(true);
+			userManager.updatePassword(user);
 			model.put("success", true);
 		} else {
 			model.put("success", false);
+			model.put("error", "Old password provided by you is incorrect.");
 		}
-
 		return model;
 	}
 }

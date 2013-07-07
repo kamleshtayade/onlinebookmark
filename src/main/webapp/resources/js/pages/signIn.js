@@ -6,7 +6,18 @@ function SignInCtrl($scope, $http) {
 	$scope.submit = function() {
 		$http.post(_context + '/signIn', $scope.user).then(function(response) {
 			if (response.data.success) {
-				window.location = _context + '/index';
+				if (response.data.isFirstLogin) {
+					window.location = _context + '/index';
+				} else {
+					window.location = _context + '/changePassword';
+				}
+			} else {
+				$scope.alerts = [];
+				$scope.alerts.push({
+					type : 'error',
+					title : 'Sorry!',
+					content : ' Username and Password are incorrect.'
+				});
 			}
 		});
 	};

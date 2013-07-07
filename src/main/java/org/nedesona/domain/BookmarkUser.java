@@ -17,6 +17,7 @@ public class BookmarkUser {
 	private String sex;
 	private Date createdDate;
 	private String ipAddress;
+	private Boolean passChanged;
 
 	public String getId() {
 		return id;
@@ -81,5 +82,15 @@ public class BookmarkUser {
 	public void setIpAddress(String ipAddress) {
 		this.ipAddress = ipAddress;
 	}
+
+	public Boolean getPassChanged() {
+		return passChanged;
+	}
+
+	public void setPassChanged(Boolean passChanged) {
+		this.passChanged = passChanged;
+	}
+	
+	
 
 }
