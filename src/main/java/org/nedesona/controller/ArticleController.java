@@ -31,6 +31,7 @@ public class ArticleController {
 		Map<String, Object> model = new HashMap<String, Object>();
 		manager.saveArticle(article);
 		model.put("articleList", manager.getArticleList());
+		//System.out.println();
 		return model;
 
 	}
